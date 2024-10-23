@@ -30,10 +30,11 @@ class Rectangle:
         # Task A: remove duplication by defining a function
         #         that checks if a value is within an interval
         #         and reuse that here.
+        
         ll_px = point.x - self._lower_left.x
         ll_py = point.y - self._lower_left.y
-        return ll_px >= 0 and ll_px <= self._dx \
-            and ll_py >= 0 and ll_py <= self._dy
+        return self.is_in_interval(ll_px, 0, self._dx) \
+            and self.is_in_interval(ll_py, 0, self._dy)
 
     def _is_idx_on_upper_edge(self, i: int) -> bool:
         return i in [2, 3]
@@ -41,7 +42,8 @@ class Rectangle:
     def _is_idx_on_right_edge(self, i: int) -> bool:
         return i in [1, 3]
 
-    # def is_in_interval(...) -> bool: # Task A
+    def is_in_interval(self, point:float, start:float, end:float) -> bool: # Task A
+        return point >= start and point <= end
 
 
 def test_rectangle_contains_exact() -> None:
