@@ -14,9 +14,9 @@ class Point2D:
     def y(self) -> float:
         return self._coordinates[1]
 
-    #def __iadd__(self, other: Vector) -> None:
-    #    self._coordinates += other
-    #    return self
+    def __iadd__(self, other: Vector) -> None:
+        self._coordinates += other
+        return self
 
 def test_point_construction() -> None:
     point = Point2D(1.0, 42.0)
