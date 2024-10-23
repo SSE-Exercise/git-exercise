@@ -7,8 +7,7 @@ from math import isclose
 
 class Vector:
     def __init__(self, coordinates: List[float]) -> None:
-        # self._coordinates = coordinates.copy()
-        self._coordinates = coordinates # Task A
+        self._coordinates = coordinates.copy()
 
     def __getitem__(self, i: int) -> float:
         return self._coordinates[i]
@@ -32,8 +31,6 @@ def test_vector_index_access() -> None:
         assert all(reference[i] == vector[i] for i in range(4))
         vector[index] = 42.0
         assert vector[index] == 42.0
-
-        # Task A: make this test pass by ensuring that `Vector` uses a copy of the coordinates it receives in the constructor
         assert reference[index] != 42.0
 
 
